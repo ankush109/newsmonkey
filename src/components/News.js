@@ -51,11 +51,11 @@ const News = (props) => {
       >
         AnkNews - Top Headlines from {props.category}{" "}
       </h1>
-      {loading && <Spinner />}
+      {/* {state.loading && <Spinner/>} */}
       <InfiniteScroll
-        dataLength={4}
+        dataLength={articles.length}
         next={fetchMoreData}
-        hasMore={100}
+        hasMore={articles.length !== totalResults}
         loader={<Spinner />}
       >
         <div className="container">
