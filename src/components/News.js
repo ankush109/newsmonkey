@@ -52,33 +52,33 @@ const News = (props) => {
         AnkNews - Top Headlines from {props.category}{" "}
       </h1>
       {loading && <Spinner />}
-      {/* <InfiniteScroll
-        dataLength={articles.length}
+      <InfiniteScroll
+        dataLength={4}
         next={fetchMoreData}
-        hasMore={articles.length !== totalResults}
+        hasMore={100}
         loader={<Spinner />}
-      > */}
-      <div className="container">
-        <div className="row">
-          {articles.map((element) => {
-            return (
-              <div className="col-md-4" key={element.url}>
-                <NewsItem
-                  description={
-                    element.description ? element.description.slice(0.5) : ""
-                  }
-                  title={element.title ? element.title.slice(0, 40) : ""}
-                  imageUrl={element.urlToImage}
-                  newsUrl={element.url}
-                  author={element.author}
-                  date={element.publishedAt}
-                />
-              </div>
-            );
-          })}
+      >
+        <div className="container">
+          <div className="row">
+            {articles.map((element) => {
+              return (
+                <div className="col-md-4" key={element.url}>
+                  <NewsItem
+                    description={
+                      element.description ? element.description.slice(0.5) : ""
+                    }
+                    title={element.title ? element.title.slice(0, 40) : ""}
+                    imageUrl={element.urlToImage}
+                    newsUrl={element.url}
+                    author={element.author}
+                    date={element.publishedAt}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-      {/* </InfiniteScroll> */}
+      </InfiniteScroll>
     </div>
   );
 };
